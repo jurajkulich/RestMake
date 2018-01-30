@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "935644693424",
+    "firebase_url": "https://restmake-33393.firebaseio.com",
+    "project_id": "restmake-33393",
+    "storage_bucket": "restmake-33393.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:935644693424:android:cdb28b23376cd291",
+        "android_client_info": {
+          "package_name": "com.example.juraj.restmake"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "935644693424-dmjumc27hsqbnmpupem4tivob4vde05t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.juraj.restmake",
+            "certificate_hash": "48bd8397d4301fe61ebbd2f9d4a3d35620b0fc8d"
+          }
+        },
+        {
+          "client_id": "935644693424-apg0dhnr0nal7vb9a9cptf862dgntb44.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMzUCVUajlMej-zDHC_C0NUnJxYOJstaI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "935644693424-apg0dhnr0nal7vb9a9cptf862dgntb44.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
