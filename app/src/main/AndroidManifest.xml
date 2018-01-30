@@ -33,10 +33,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"
+        <activity android:name=".Authorization.LoginActivity"
             android:theme="@style/AppTheme.Dark"/>
         <activity
-            android:name=".RegisterActivity"
+            android:name=".Authorization.RegisterActivity"
             android:theme="@style/AppTheme.Dark" />
 
         <meta-data

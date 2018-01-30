@@ -1,26 +1,11 @@
-package com.example.juraj.restmake;
+package com.example.juraj.restmake.Authorization;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.nfc.Tag;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.app.LoaderManager.LoaderCallbacks;
 
-import android.content.CursorLoader;
-import android.content.Loader;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.AsyncTask;
-
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v7.widget.AppCompatButton;
 import android.text.TextUtils;
 import android.util.Log;
@@ -28,24 +13,18 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.juraj.restmake.MainActivity;
+import com.example.juraj.restmake.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static android.Manifest.permission.READ_CONTACTS;
 
 /**
  * A login screen that offers login via email/password.
@@ -102,20 +81,6 @@ public class LoginActivity extends AppCompatActivity  {
         });
     }
 
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        /*
-        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-        if( currentUser != null ) {
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
-            // finish();
-        }
-        */
-    }
-
     /**
      * Attempts to sign in or register the account specified by the login form.
      * If there are form errors (invalid email, missing fields, etc.), the
@@ -160,6 +125,7 @@ public class LoginActivity extends AppCompatActivity  {
             //showProgress(true);
             // createAccount(email, password);
             signIn(email, password);
+            showProgress(true);
         }
     }
 
@@ -171,7 +137,7 @@ public class LoginActivity extends AppCompatActivity  {
         return password.length() >= 6;
     }
 
-
+    // FireBase sign in
     void signIn(String mail, String password) {
         firebaseAuth.signInWithEmailAndPassword(mail, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
@@ -192,16 +158,15 @@ public class LoginActivity extends AppCompatActivity  {
 
     void showProgress(boolean show) {
         final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this, R.style.Theme_AppCompat_DayNight_Dialog);
-        progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Authenticating...");
-        progressDialog.show();
+        if(show) {
+            progressDialog.setIndeterminate(true);
+            progressDialog.setMessage("Authenticating...");
+            progressDialog.show();
+        } else {
+            progressDialog.hide();
+        }
     }
 
-    @Override
-    protected void onDestroy() {
-        // FirebaseAuth.getInstance().signOut();
-        super.onDestroy();
-    }
 }
 
 
