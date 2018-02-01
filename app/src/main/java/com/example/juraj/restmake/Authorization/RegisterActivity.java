@@ -1,5 +1,6 @@
 package com.example.juraj.restmake.Authorization;
 
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -144,7 +145,10 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if( task.isSuccessful()) {
                             Log.d(TAG, "CreateUser: success");
-                            FirebaseUser user = firebaseAuth.getCurrentUser();
+                            // FirebaseUser user = firebaseAuth.getCurrentUser();
+                            android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                            transaction.replace(R.id.register_main, RegisterVerifyFragment.newInstance());
+                            transaction.commit();
                         } else {
                             FirebaseAuthException e = (FirebaseAuthException) task.getException();
                             Log.w(TAG, "CreateUser: failure: ", e);

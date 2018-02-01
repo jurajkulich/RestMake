@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
@@ -43,6 +44,8 @@ public class LoginActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
 
         // Initialize Firebase Authentication
         firebaseAuth = FirebaseAuth.getInstance();
@@ -145,9 +148,13 @@ public class LoginActivity extends AppCompatActivity  {
                 if (task.isSuccessful()) {
                     Log.d(TAG, "SignIn: success");
                     FirebaseUser user = firebaseAuth.getCurrentUser();
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                    if( user.isEmailVerified()) {
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        verifyUser();
+                    }
                 } else {
                     Log.w(TAG, "SignIn: failure");
                     Toast.makeText(LoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
@@ -165,6 +172,22 @@ public class LoginActivity extends AppCompatActivity  {
         } else {
             progressDialog.hide();
         }
+    }
+
+    void verifyUser() {
+        final FirebaseUser user = firebaseAuth.getCurrentUser();
+
+        user.sendEmailVerification().addOnCompleteListener(this, new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if( task.isSuccessful()) {
+                    Toast.makeText(LoginActivity.this, "Verification email send: " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                } else {
+                    Log.e(TAG, "Verifying failed: ", task.getException());
+                    Toast.makeText(LoginActivity.this, "Failed to send verification email", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
 }

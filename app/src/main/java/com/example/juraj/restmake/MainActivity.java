@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.juraj.restmake.Authorization.RegisterVerifyFragment;
 import com.example.juraj.restmake.NavigationBarFragments.ProfileFragment;
 import com.example.juraj.restmake.NavigationBarFragments.ExploreFragment;
 import com.example.juraj.restmake.NavigationBarFragments.SearchFragment;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 switch(item.getItemId()) {
                     case R.id.bottom_nav_explore: {
                         fragment = ExploreFragment.newInstance();
+                        //fragment = RegisterVerifyFragment.newInstance();
                         break;
                     }
                     case R.id.bottom_nav_profile: {
