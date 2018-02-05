@@ -1,13 +1,91 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.juraj.restmake.NavigationBarFragments.ProfileFragment">
 
-    <Button
-        android:id="@+id/button_log_out"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Log Out"/>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/profile_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"/>
 
-</FrameLayout>
+
+    <ImageView
+        android:id="@+id/profile_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/profile_photo" />
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/profile_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Goeff Banks"
+                    android:layout_alignParentTop="true"
+                    android:textSize="26sp"/>
+
+                <TextView
+                    android:id="@+id/profile_about_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About"
+                    android:layout_below="@id/profile_name"
+                    android:textStyle="bold"/>
+
+                <View
+                    android:id="@+id/profile_about_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    android:layout_below="@id/profile_about_label" />
+
+                <TextView
+                    android:id="@+id/profile_about"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="I am the best windows cleaner in the world. And I love burgers!"
+                    android:layout_below="@id/profile_about_divider"
+                    android:textSize="@dimen/profile_font_primary_size" />
+
+                <TextView
+                    android:id="@+id/profile_label_offers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Actual offers"
+                    android:layout_below="@id/profile_about"
+                    android:textStyle="bold"
+                    />
+
+                <View
+                    android:id="@+id/profile_offers_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black"
+                    android:layout_below="@id/profile_label_offers"/>
+
+                <Button
+                    android:id="@+id/button_log_out"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Log Out"
+                    android:layout_below="@id/profile_label_offers"/>
+
+            </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
