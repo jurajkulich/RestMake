@@ -17,10 +17,13 @@ import com.example.juraj.restmake.NavigationBarFragments.ProfileFragment;
 import com.example.juraj.restmake.NavigationBarFragments.ExploreFragment;
 import com.example.juraj.restmake.NavigationBarFragments.SearchFragment;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
+    private FirebaseDatabase mFirebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.bottom_nav_view);
 
-        /*
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.map_fragment_container, new MapFragment());
-        fragmentTransaction.commit();
-        */
-
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        addJobToDb(new Job("Pik", "Mám rád, deň jabloní stále chutí", 2.5));
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -68,6 +66,11 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.fragment_container, ExploreFragment.newInstance());
         transaction.commit();
 
+    }
+
+    private void addJobToDb(Job job) {
+        String id = mFirebaseDatabase.getReference("jobs").push().getKey();
+        mFirebaseDatabase.getReference("jobs").child(id).setValue(job);
     }
 
 }
