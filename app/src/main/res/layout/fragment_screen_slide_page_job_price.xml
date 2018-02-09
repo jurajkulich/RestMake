@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.example.juraj.restmake.ScreenSlidePageJobPrice">
+
+    <RadioGroup
+        android:id="@+id/salary_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/salary_salaried"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salaried"
+            android:layout_weight="1"
+            android:checked="true"
+            />
+        <RadioButton
+            android:id="@+id/salary_hourly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hourly"
+            android:layout_weight="1"/>
+    </RadioGroup>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/price_text_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/salary_radio_group">
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+    </android.support.design.widget.TextInputLayout>
+</RelativeLayout>

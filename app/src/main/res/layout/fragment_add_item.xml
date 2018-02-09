@@ -5,70 +5,21 @@
     tools:context="com.example.juraj.restmake.AddItemFragment"
     android:orientation="vertical"
     android:fitsSystemWindows="true">
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/title_text_input_layout"
+    
+    
+    <com.example.juraj.restmake.NonSwipeViewPager
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/title_text_input_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/item_title_hint"
-            android:maxLines="1"
-            android:singleLine="true"/>
-    </android.support.design.widget.TextInputLayout>
+        android:layout_height="match_parent"
+        android:id="@+id/add_item_view_pager"/>
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/description_text_input_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/title_text_input_layout">
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/item_description_hint"
-            android:maxLines="4"/>
-    </android.support.design.widget.TextInputLayout>
+    <!--
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/description_text_input_layout"/>
-
-    <RadioGroup
-        android:id="@+id/salary_radio_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/button"
-        >
-        <RadioButton
-            android:id="@+id/salary_salaried"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Salaried"
-            android:layout_weight="1"
-            android:checked="true"
-            />
-        <RadioButton
-            android:id="@+id/salary_hourly"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hourly"
-            android:layout_weight="1"/>
-    </RadioGroup>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/price_text_input_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/salary_radio_group">
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"/>
-    </android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/button_done"
@@ -77,4 +28,8 @@
         android:layout_alignParentBottom="true"
         android:paddingBottom="40dp"
         android:text="Done"/>
+
+       -->
+    
+    
 </RelativeLayout>
