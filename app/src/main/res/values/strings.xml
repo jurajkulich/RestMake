@@ -16,12 +16,13 @@
 
     <string name="action_register">Create account</string>
     <string name="prompt_name">Name</string>
-
     <string name="switch_to_register">No account yet\? Create one</string>
     <string name="switch_to_login">Already a member? Sign in</string>
+    <string name="account_verify">Your account has been created. To continue verify your email address.</string>
 
+    <string name="item_title_hint">Title</string>
+    <string name="item_description_hint">Description</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="account_verify">Your account has been created. To continue verify your email address.</string>
 
 </resources>

@@ -125,7 +125,6 @@ public class LoginActivity extends AppCompatActivity  {
             // form field with an error.
             focusView.requestFocus();
         } else {
-            //showProgress(true);
             // createAccount(email, password);
             signIn(email, password);
             showProgress(true);

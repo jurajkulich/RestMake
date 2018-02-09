@@ -3,7 +3,10 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="design_bottom_navigation_height" tools:override="true">50dp</dimen>
+    <!--
+    <dimen name="design_bottom_navigation_text_size" tools:override="true">10sp</dimen>
+    <dimen name="design_bottom_navigation_active_text_size" tools:override="true">10sp</dimen>
+    -->
 
     <dimen name="profile_font_primary_size">16sp</dimen>
 </resources>

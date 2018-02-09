@@ -23,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
-    private FirebaseDatabase mFirebaseDatabase;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +32,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bottom_nav_view);
-
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
-        addJobToDb(new Job("Pik", "Mám rád, deň jabloní stále chutí", 2.5));
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -48,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                     case R.id.bottom_nav_profile: {
                         fragment = ProfileFragment.newInstance();
+                        break;
+                    }
+                    case R.id.bottom_nav_inbox: {
+                        fragment = AddItemFragment.newInstance();
                         break;
                     }
                     case R.id.bottom_nav_search: {
@@ -68,9 +69,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void addJobToDb(Job job) {
-        String id = mFirebaseDatabase.getReference("jobs").push().getKey();
-        mFirebaseDatabase.getReference("jobs").child(id).setValue(job);
-    }
 
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        onBackPressed();
+    }
 }
