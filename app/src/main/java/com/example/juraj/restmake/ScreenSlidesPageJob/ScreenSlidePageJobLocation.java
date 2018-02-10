@@ -1,15 +1,21 @@
 package com.example.juraj.restmake.ScreenSlidesPageJob;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.juraj.restmake.AddItemFragment;
 import com.example.juraj.restmake.R;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.location.places.AutocompleteFilter;
+import com.google.android.gms.location.places.ui.PlaceAutocomplete;
 
 
 /**
@@ -17,7 +23,10 @@ import com.example.juraj.restmake.R;
  */
 public class ScreenSlidePageJobLocation extends Fragment {
 
+    int PLACE_AUTOCOMPLETE_REQUEST_CODE = 1;
+
     private ImageButton backButton;
+    private Button button;
 
     public ScreenSlidePageJobLocation() {
         // Required empty public constructor
@@ -45,6 +54,24 @@ public class ScreenSlidePageJobLocation extends Fragment {
             @Override
             public void onClick(View v) {
                 ((AddItemFragment) getParentFragment()).setSlide(2, true);
+            }
+        });
+
+        button = rootView.findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    AutocompleteFilter filter = new AutocompleteFilter.Builder().setTypeFilter(AutocompleteFilter.TYPE_FILTER_ADDRESS)
+                            .build();
+                    Intent intent = new PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_OVERLAY).
+                            setFilter(filter).build(getActivity());
+                    startActivityForResult(intent, PLACE_AUTOCOMPLETE_REQUEST_CODE);
+                } catch (GooglePlayServicesRepairableException e) {
+                    // TODO exception
+                } catch (GooglePlayServicesNotAvailableException e) {
+                    // TODO exception
+                }
             }
         });
 

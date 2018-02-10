@@ -5,6 +5,10 @@
              tools:context="com.example.juraj.restmake.ScreenSlidesPageJob.ScreenSlidePageJobLocation"
     android:paddingBottom="56dp">
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <ImageButton
         android:id="@+id/location_next_button"

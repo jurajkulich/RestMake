@@ -20,8 +20,6 @@ import com.example.juraj.restmake.ScreenSlidesPageJob.ScreenSlidePageJobTitle;
  */
 public class AddItemFragment extends Fragment {
 
-    int PLACE_AUTOCOMPLETE_REQUEST_CODE = 1;
-
     private static final int NUM_PAGES = 5;
 
     private NonSwipeViewPager mViewPager;
@@ -102,22 +100,5 @@ public class AddItemFragment extends Fragment {
 
     // addJobToDb(new Job("Pik", "Mám rád, deň jabloní stále chutí", 2.5));
 
-    button = rootView.findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            try {
-                AutocompleteFilter filter = new AutocompleteFilter.Builder().setTypeFilter(AutocompleteFilter.TYPE_FILTER_ADDRESS)
-                        .build();
-                Intent intent = new PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_OVERLAY).
-                        setFilter(filter).build(getActivity());
-                startActivityForResult(intent, PLACE_AUTOCOMPLETE_REQUEST_CODE);
-            } catch (GooglePlayServicesRepairableException e) {
-                // TODO exception
-            } catch (GooglePlayServicesNotAvailableException e) {
-                // TODO exception
-            }
-        }
-    });
     */
 }
