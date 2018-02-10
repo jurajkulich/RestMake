@@ -1,4 +1,5 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -12,7 +13,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        
+
         <item name="android:windowBackground">@color/colorPrimary</item>
 
         <item name="android:colorControlNormal">@color/iron</item>
@@ -37,12 +38,13 @@
         <item name="colorButtonNormal">@color/colorPrimaryDark</item>
         <item name="android:colorButtonNormal">@color/colorPrimaryDark</item>
 
-        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
 
-        <item name="android:windowTranslucentStatus">false</item>
-        <item name="android:windowTranslucentNavigation">false</item>
 
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:fitsSystemWindows">true</item>
 
     </style>
 

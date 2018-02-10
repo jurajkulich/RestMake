@@ -1,4 +1,4 @@
-package com.example.juraj.restmake;
+package com.example.juraj.restmake.NavigationBarFragments;
 
 
 import android.os.Bundle;
@@ -7,22 +7,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.juraj.restmake.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ScreenSlidePageJobDescription extends Fragment {
+public class InboxFragment extends Fragment {
 
 
-    public ScreenSlidePageJobDescription() {
-        // Required empty public constructor
-    }
+    public static InboxFragment newInstance() {
 
-    public static ScreenSlidePageJobDescription newInstance() {
-        
         Bundle args = new Bundle();
         
-        ScreenSlidePageJobDescription fragment = new ScreenSlidePageJobDescription();
+        InboxFragment fragment = new InboxFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -31,7 +29,7 @@ public class ScreenSlidePageJobDescription extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_screen_slide_page_job_description, container, false);
+        return inflater.inflate(R.layout.fragment_inbox, container, false);
     }
 
 }

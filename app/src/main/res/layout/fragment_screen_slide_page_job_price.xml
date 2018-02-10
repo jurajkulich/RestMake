@@ -1,8 +1,9 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="com.example.juraj.restmake.ScreenSlidePageJobPrice">
+             tools:context="com.example.juraj.restmake.ScreenSlidesPageJob.ScreenSlidePageJobPrice"
+    android:paddingBottom="56dp">
 
     <RadioGroup
         android:id="@+id/salary_radio_group"
@@ -34,4 +35,22 @@
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"/>
     </android.support.design.widget.TextInputLayout>
-</RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/price_next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_chevron_right"
+        android:layout_gravity="bottom|end"
+        style="?android:attr/borderlessButtonStyle"
+        />
+
+    <ImageButton
+        android:id="@+id/price_back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_chevron_left"
+        android:layout_gravity="bottom|start"
+        style="?android:attr/borderlessButtonStyle"
+        />
+</FrameLayout>

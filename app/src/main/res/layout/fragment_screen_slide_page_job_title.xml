@@ -1,9 +1,10 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="com.example.juraj.restmake.ScreenSlidePageJobTitle"
-    android:theme="@style/AppTheme.Dark">
+             tools:context="com.example.juraj.restmake.ScreenSlidesPageJob.ScreenSlidePageJobTitle"
+    android:fitsSystemWindows="true"
+    android:paddingBottom="56dp">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/title_text_input_layout"
@@ -19,13 +20,14 @@
     </android.support.design.widget.TextInputLayout>
 
     <ImageButton
+        android:id="@+id/title_next_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_chevron_left"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-       />
+        android:src="@drawable/ic_chevron_right"
+        android:layout_gravity="bottom|end"
+        style="?android:attr/borderlessButtonStyle"
+        />
 
 
 
-</RelativeLayout>
+</FrameLayout>

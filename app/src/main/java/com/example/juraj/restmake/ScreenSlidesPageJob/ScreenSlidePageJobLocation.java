@@ -1,4 +1,4 @@
-package com.example.juraj.restmake;
+package com.example.juraj.restmake.ScreenSlidesPageJob;
 
 
 import android.os.Bundle;
@@ -6,6 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+
+import com.example.juraj.restmake.AddItemFragment;
+import com.example.juraj.restmake.R;
 
 
 /**
@@ -13,6 +17,7 @@ import android.view.ViewGroup;
  */
 public class ScreenSlidePageJobLocation extends Fragment {
 
+    private ImageButton backButton;
 
     public ScreenSlidePageJobLocation() {
         // Required empty public constructor
@@ -32,7 +37,18 @@ public class ScreenSlidePageJobLocation extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_screen_slide_page_job_location, container, false);
+        View rootView =  inflater.inflate(R.layout.fragment_screen_slide_page_job_location, container, false);
+
+
+        backButton = rootView.findViewById(R.id.location_back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((AddItemFragment) getParentFragment()).setSlide(2, true);
+            }
+        });
+
+        return rootView;
     }
 
 }

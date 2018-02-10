@@ -4,9 +4,9 @@
     <item android:id="@+id/bottom_nav_explore"
         android:title="Explore"
         android:icon="@drawable/ic_explore"/>
-    <item android:id="@+id/bottom_nav_search"
-        android:title="Search"
-        android:icon="@drawable/ic_search"/>
+    <item android:id="@+id/bottom_nav_add_item"
+        android:title="Add Job"
+        android:icon="@drawable/ic_add_box"/>
     <item android:id="@+id/bottom_nav_inbox"
         android:icon="@drawable/ic_inbox"
         android:title="Inbox"/>

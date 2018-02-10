@@ -2,12 +2,26 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="com.example.juraj.restmake.ScreenSlidePageJobLocation">
+             tools:context="com.example.juraj.restmake.ScreenSlidesPageJob.ScreenSlidePageJobLocation"
+    android:paddingBottom="56dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+
+    <ImageButton
+        android:id="@+id/location_next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_chevron_right"
+        android:layout_gravity="bottom|end"
+        style="?android:attr/borderlessButtonStyle"
+        />
+
+    <ImageButton
+        android:id="@+id/location_back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_chevron_left"
+        android:layout_gravity="bottom|start"
+        style="?android:attr/borderlessButtonStyle"
+        />
 
 </FrameLayout>

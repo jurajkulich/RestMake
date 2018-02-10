@@ -3,22 +3,15 @@ package com.example.juraj.restmake;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 
-import com.example.juraj.restmake.Authorization.RegisterVerifyFragment;
+import com.example.juraj.restmake.NavigationBarFragments.InboxFragment;
 import com.example.juraj.restmake.NavigationBarFragments.ProfileFragment;
 import com.example.juraj.restmake.NavigationBarFragments.ExploreFragment;
-import com.example.juraj.restmake.NavigationBarFragments.SearchFragment;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
                 switch(item.getItemId()) {
                     case R.id.bottom_nav_explore: {
                         fragment = ExploreFragment.newInstance();
-                        //fragment = RegisterVerifyFragment.newInstance();
                         break;
                     }
                     case R.id.bottom_nav_profile: {
@@ -47,11 +39,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
                     case R.id.bottom_nav_inbox: {
-                        fragment = AddItemFragment.newInstance();
+                        fragment = InboxFragment.newInstance();
                         break;
                     }
-                    case R.id.bottom_nav_search: {
-                        fragment = SearchFragment.newInstance();
+                    case R.id.bottom_nav_add_item: {
+                        fragment = AddItemFragment.newInstance();
                         break;
                     }
                 }
@@ -74,4 +66,5 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         onBackPressed();
     }
+
 }

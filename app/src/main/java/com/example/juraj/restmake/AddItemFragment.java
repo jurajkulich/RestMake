@@ -1,29 +1,18 @@
 package com.example.juraj.restmake;
 
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
 
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.places.AutocompleteFilter;
-import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.ui.PlaceAutocomplete;
-import com.google.firebase.database.FirebaseDatabase;
-
-import static android.app.Activity.RESULT_OK;
+import com.example.juraj.restmake.ScreenSlidesPageJob.ScreenSlidePageJobDescription;
+import com.example.juraj.restmake.ScreenSlidesPageJob.ScreenSlidePageJobLocation;
+import com.example.juraj.restmake.ScreenSlidesPageJob.ScreenSlidePageJobPrice;
+import com.example.juraj.restmake.ScreenSlidesPageJob.ScreenSlidePageJobTitle;
 
 
 /**
@@ -82,6 +71,10 @@ public class AddItemFragment extends Fragment {
         }
     }
 
+    public void setSlide(int slide, boolean scroll) {
+        mViewPager.setCurrentItem(slide, scroll);
+    }
+
     /*
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -97,7 +90,7 @@ public class AddItemFragment extends Fragment {
     }
 
     private void addJobToDb(Job job) {
-        
+
         String id = mFirebaseDatabase.getReference("jobs").push().getKey();
         mFirebaseDatabase.getReference("jobs").child(id).setValue(job);
     }
