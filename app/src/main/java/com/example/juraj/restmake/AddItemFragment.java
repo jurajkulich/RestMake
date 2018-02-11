@@ -1,6 +1,8 @@
 package com.example.juraj.restmake;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,12 +15,15 @@ import com.example.juraj.restmake.ScreenSlidesPageJob.ScreenSlidePageJobDescript
 import com.example.juraj.restmake.ScreenSlidesPageJob.ScreenSlidePageJobLocation;
 import com.example.juraj.restmake.ScreenSlidesPageJob.ScreenSlidePageJobPrice;
 import com.example.juraj.restmake.ScreenSlidesPageJob.ScreenSlidePageJobTitle;
+import com.example.juraj.restmake.ScreenSlidesPageJob.ScreenSlidePageJobToDb;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class AddItemFragment extends Fragment {
+
+    public static final String JOB_PREFERENCES = "JobSharedPreference" ;
 
     private static final int NUM_PAGES = 5;
 
@@ -42,6 +47,8 @@ public class AddItemFragment extends Fragment {
         mViewPager = rootView.findViewById(R.id.add_item_view_pager);
         mViewPager.setAdapter(new ScreenSlidePagerAdapter(getChildFragmentManager()));
 
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences(JOB_PREFERENCES, Context.MODE_PRIVATE);
+
 
         return rootView;
     }
@@ -59,6 +66,7 @@ public class AddItemFragment extends Fragment {
                 case 1: return ScreenSlidePageJobDescription.newInstance();
                 case 2: return ScreenSlidePageJobPrice.newInstance();
                 case 3: return ScreenSlidePageJobLocation.newInstance();
+                case 4: return ScreenSlidePageJobToDb.newInstance();
                 default: return ScreenSlidePageJobTitle.newInstance();
             }
         }
@@ -73,32 +81,4 @@ public class AddItemFragment extends Fragment {
         mViewPager.setCurrentItem(slide, scroll);
     }
 
-    /*
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if( requestCode == PLACE_AUTOCOMPLETE_REQUEST_CODE) {
-            if( resultCode == RESULT_OK) {
-                Place place = PlaceAutocomplete.getPlace(getActivity(), data);
-                Toast.makeText(getActivity(), place.getAddress(), Toast.LENGTH_SHORT).show();
-            } else {
-                Status status = PlaceAutocomplete.getStatus(getActivity(), data);
-                Toast.makeText(getActivity(), "Couldn't get address", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
-
-    private void addJobToDb(Job job) {
-
-        String id = mFirebaseDatabase.getReference("jobs").push().getKey();
-        mFirebaseDatabase.getReference("jobs").child(id).setValue(job);
-    }
-
-    mFirebaseDatabase = FirebaseDatabase.getInstance();
-
-    title = rootView.findViewById(R.id.title_text_input_edit_text);
-
-
-    // addJobToDb(new Job("Pik", "Mám rád, deň jabloní stále chutí", 2.5));
-
-    */
 }

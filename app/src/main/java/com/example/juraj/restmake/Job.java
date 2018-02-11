@@ -8,17 +8,20 @@ public class Job {
 
     String title;
     String description;
-    double price;
+    double salary;
+    boolean salary_type;
     String latitude;
     String longitude;
 
     public Job() {
     }
 
-    public Job(String title, String description, double price) {
+    public Job(String title, String description, double salary, boolean salary_type, String latitude, String longitude) {
         this.title = title;
         this.description = description;
-        this.price = price;
+        this.salary = salary;
+        this.salary_type = salary_type;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
-
 }
