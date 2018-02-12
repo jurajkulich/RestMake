@@ -23,6 +23,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -145,6 +146,7 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if( task.isSuccessful()) {
                             Log.d(TAG, "CreateUser: success");
+                            addUserToDb(task.getResult().getUser());
                             // FirebaseUser user = firebaseAuth.getCurrentUser();
                             android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                             transaction.replace(R.id.register_main, RegisterVerifyFragment.newInstance());
@@ -156,6 +158,11 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private void addUserToDb(FirebaseUser user) {
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        firebaseDatabase.getReference("users").child(user.getUid()).setValue(user);
     }
 
     @Override
