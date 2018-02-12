@@ -1,4 +1,4 @@
-package com.example.juraj.restmake;
+package com.example.juraj.restmake.Instances;
 
 /**
  * Created by Juraj on 2/5/2018.

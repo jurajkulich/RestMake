@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.juraj.restmake.Job;
+import com.example.juraj.restmake.Instances.Job;
 import com.example.juraj.restmake.R;
 import com.google.firebase.database.FirebaseDatabase;
 
