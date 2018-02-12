@@ -46,10 +46,11 @@ public class AddItemFragment extends Fragment {
 
         mViewPager = rootView.findViewById(R.id.add_item_view_pager);
         mViewPager.setAdapter(new ScreenSlidePagerAdapter(getChildFragmentManager()));
+        mViewPager.setOffscreenPageLimit(0);
 
-        SharedPreferences sharedPreferences = getContext().getSharedPreferences(JOB_PREFERENCES, Context.MODE_PRIVATE);
 
-
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(JOB_PREFERENCES, Context.MODE_PRIVATE);
+        sharedPreferences.edit().clear().commit();
         return rootView;
     }
 
@@ -64,10 +65,10 @@ public class AddItemFragment extends Fragment {
             switch (position) {
                 case 0: return ScreenSlidePageJobTitle.newInstance();
                 case 1: return ScreenSlidePageJobDescription.newInstance();
-                case 2: return ScreenSlidePageJobPrice.newInstance();
-                case 3: return ScreenSlidePageJobLocation.newInstance();
+                case 2: return ScreenSlidePageJobLocation.newInstance();
+                case 3: return ScreenSlidePageJobPrice.newInstance();
                 case 4: return ScreenSlidePageJobToDb.newInstance();
-                default: return ScreenSlidePageJobTitle.newInstance();
+                default: return ScreenSlidePageJobToDb.newInstance();
             }
         }
 
@@ -79,6 +80,10 @@ public class AddItemFragment extends Fragment {
 
     public void setSlide(int slide, boolean scroll) {
         mViewPager.setCurrentItem(slide, scroll);
+    }
+
+    public int getItem() {
+        return mViewPager.getCurrentItem();
     }
 
 }

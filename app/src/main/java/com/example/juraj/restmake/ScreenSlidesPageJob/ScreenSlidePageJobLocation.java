@@ -63,22 +63,27 @@ public class ScreenSlidePageJobLocation extends Fragment {
         // Inflate the layout for this fragment
         View rootView =  inflater.inflate(R.layout.fragment_screen_slide_page_job_location, container, false);
 
-        backButton = rootView.findViewById(R.id.location_back_button);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((AddItemFragment) getParentFragment()).setSlide(4, true);
-            }
-        });
-
         nextButton = rootView.findViewById(R.id.location_next_button);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(checkLocation())
-                    ((AddItemFragment)(getParentFragment())).setSlide(3, true);
+                {
+                    int slide = ((AddItemFragment)(getParentFragment())).getItem() + 1;
+                    ((AddItemFragment)(getParentFragment())).setSlide(slide, true);
+                }
             }
         });
+
+        backButton = rootView.findViewById(R.id.location_back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int slide = ((AddItemFragment)(getParentFragment())).getItem() - 1;
+                ((AddItemFragment) getParentFragment()).setSlide(slide, true);
+            }
+        });
+
 
         button = rootView.findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {

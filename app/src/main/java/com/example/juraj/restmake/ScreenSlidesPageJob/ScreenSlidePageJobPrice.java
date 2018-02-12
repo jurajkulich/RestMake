@@ -61,8 +61,11 @@ public class ScreenSlidePageJobPrice extends Fragment {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if( checkPrice())
-                    ((AddItemFragment)(getParentFragment())).setSlide(3, true);
+                if( checkPrice()) {
+                    int slide = ((AddItemFragment)(getParentFragment())).getItem() + 1;
+                    ((AddItemFragment)(getParentFragment())).setSlide(slide, true);
+                }
+
             }
         });
 
@@ -70,7 +73,8 @@ public class ScreenSlidePageJobPrice extends Fragment {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((AddItemFragment) getParentFragment()).setSlide(1, true);
+                int slide = ((AddItemFragment)(getParentFragment())).getItem() - 1;
+                ((AddItemFragment) getParentFragment()).setSlide(slide , true);
             }
         });
 

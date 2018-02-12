@@ -55,8 +55,11 @@ public class ScreenSlidePageJobDescription extends Fragment {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkDescription())
-                ((AddItemFragment)(getParentFragment())).setSlide(2, true);
+                if(checkDescription()) {
+                    int slide = ((AddItemFragment)(getParentFragment())).getItem() + 1;
+                    ((AddItemFragment)(getParentFragment())).setSlide(slide, true);
+                }
+
             }
         });
 
@@ -64,7 +67,8 @@ public class ScreenSlidePageJobDescription extends Fragment {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((AddItemFragment) getParentFragment()).setSlide(0, true);
+                int slide = ((AddItemFragment)(getParentFragment())).getItem() - 1;
+                ((AddItemFragment) getParentFragment()).setSlide(slide, true);
             }
         });
 

@@ -54,7 +54,11 @@ public class ScreenSlidePageJobTitle extends Fragment {
             @Override
             public void onClick(View v) {
                 if(checkTitle())
-                    ((AddItemFragment)(getParentFragment())).setSlide(1, true);
+                {
+                    int slide = ((AddItemFragment)(getParentFragment())).getItem() + 1;
+                    ((AddItemFragment)(getParentFragment())).setSlide(slide, true);
+                }
+
             }
         });
 
