@@ -32,7 +32,7 @@
             android:resource="@array/preloaded_fonts" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBuXM7ehyTWLnOa2AcG6t4VfnPN5opjzrE" />
+            android:value="" />
 
         <activity android:name=".MainActivity"
             android:theme="@style/NoActionBar"
